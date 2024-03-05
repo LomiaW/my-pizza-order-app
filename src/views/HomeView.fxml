@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="620.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.HomeController">
+   <children>
+      <HBox alignment="CENTER" prefHeight="80.0" prefWidth="850.0" spacing="20.0">
+         <children>
+            <ImageView fitHeight="100.0" fitWidth="140.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../statics/pizza-logo.png" />
+               </image>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </ImageView>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Pizza Ordering App" textAlignment="CENTER" wrappingWidth="329.744140625">
+               <font>
+                  <Font name="System Bold" size="36.0" />
+               </font>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </Text>
+            <Label text="\@Made by Lomia Wu">
+               <HBox.margin>
+                  <Insets left="5.0" top="50.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+         <padding>
+            <Insets left="20.0" />
+         </padding>
+      </HBox>
+      <GridPane layoutY="101.0" prefHeight="520.0" prefWidth="850.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints />
+        </rowConstraints>
+         <children>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label text="Name">
+                           <HBox.margin>
+                              <Insets left="10.0" right="15.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font name="Calibri Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="name_tfd" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" layoutX="10.0" layoutY="47.0" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label text="Phone">
+                           <HBox.margin>
+                              <Insets left="10.0" right="15.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font name="Calibri Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="phone_tfd" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+                     <children>
+                        <Button fx:id="clear_btn" mnemonicParsing="false" onAction="#clearButtonPressed" text="Clear" />
+                        <Button fx:id="placeOrder_btn" mnemonicParsing="false" onAction="#placeOrderButtonPressed" text="Place Order" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <TextArea id="orderSummary" fx:id="summary_tarea" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.rowSpan="2">
+               <GridPane.margin>
+                  <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+               </GridPane.margin>
+               <font>
+                  <Font name="Calibri" size="12.0" />
+               </font>
+            </TextArea>
+            <VBox accessibleRole="RADIO_BUTTON" alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0" spacing="10.0" style="-fx-border-color: black; -fx-border-radius: 5; -fx-border-style: dashed;" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               <children>
+                  <Label text="Pizza Size">
+                     <font>
+                        <Font name="Calibri Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <RadioButton id="sizeSRb" fx:id="sizeS_rBtn" mnemonicParsing="false" onAction="#sizeRadioButtonSelected" text="Small - $7.00">
+                  	<toggleGroup>
+                  		<ToggleGroup fx:id="SizeGroup" />
+                  	</toggleGroup>
+                  </RadioButton>
+                  <RadioButton id="sizeMRb" fx:id="sizeM_rBtn" mnemonicParsing="false" onAction="#sizeRadioButtonSelected" selected="true" text="Medium - $10.00" toggleGroup="$SizeGroup" />
+                  <RadioButton id="sizeLRb" fx:id="sizeL_rBtn" mnemonicParsing="false" onAction="#sizeRadioButtonSelected" text="Large - $13.00" toggleGroup="$SizeGroup" />
+                  <RadioButton id="sizeXLRb" fx:id="sizeXL_rBtn" mnemonicParsing="false" onAction="#sizeRadioButtonSelected" text="Extra Large - $15.00" toggleGroup="$SizeGroup" />
+               </children>
+               <GridPane.margin>
+                  <Insets left="50.0" right="30.0" top="15.0" />
+               </GridPane.margin>
+               <padding>
+                  <Insets left="15.0" />
+               </padding>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0" style="-fx-border-color: black; -fx-border-radius: 5; -fx-border-style: dashed;" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               <children>
+                  <Label text="Crust Type">
+                     <font>
+                        <Font name="Calibri Bold" size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Label>
+                  <ChoiceBox fx:id="type_cBox" prefWidth="150.0">
+                     <VBox.margin>
+                        <Insets left="10.0" />
+                     </VBox.margin></ChoiceBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0" spacing="15.0">
+                     <children>
+                        <Label text="Quantities">
+                           <font>
+                              <Font name="Calibri Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="quatity_tfd" prefWidth="80.0" />
+                     </children>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+               <padding>
+                  <Insets left="15.0" top="5.0" />
+               </padding>
+               <GridPane.margin>
+                  <Insets left="30.0" right="30.0" top="15.0" />
+               </GridPane.margin>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0" style="-fx-border-color: black; -fx-border-radius: 5; -fx-border-style: dashed;" GridPane.columnSpan="2" GridPane.rowIndex="1">
+               <children>
+                  <Label text="Toppings">
+                     <font>
+                        <Font name="Calibri Bold" size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="15.0" top="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="567.0" spacing="50.0">
+                     <children>
+                        <VBox prefHeight="200.0" prefWidth="180.0" spacing="10.0">
+                           <children>
+                              <CheckBox fx:id="top1_chkBox" mnemonicParsing="false" onAction="#toppingCheckBoxSelected" prefWidth="180.0" text="Pineapple" />
+                              <CheckBox fx:id="top2_chkBox" mnemonicParsing="false" onAction="#toppingCheckBoxSelected" text="Extra Cheese" />
+                              <CheckBox fx:id="top3_chkBox" mnemonicParsing="false" onAction="#toppingCheckBoxSelected" text="Dried Shrimps" />
+                              <CheckBox fx:id="top4_chkBox" mnemonicParsing="false" onAction="#toppingCheckBoxSelected" text="Mushrooms" />
+                              <CheckBox fx:id="top5_chkBox" mnemonicParsing="false" onAction="#toppingCheckBoxSelected" text="Anchovies" />
+                              <CheckBox fx:id="top6_chkBox" mnemonicParsing="false" onAction="#toppingCheckBoxSelected" text="Sun Dried Tomatoes" />
+                              <CheckBox fx:id="top7_chkBox" mnemonicParsing="false" onAction="#toppingCheckBoxSelected" text="Dacon" />
+                              <CheckBox fx:id="top8_chkBox" mnemonicParsing="false" onAction="#toppingCheckBoxSelected" text="Spinach" />
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="250.0" prefWidth="180.0" spacing="10.0">
+                           <children>
+                              <CheckBox fx:id="top9_chkBox" mnemonicParsing="false" onAction="#toppingCheckBoxSelected" text="Roasted Garlic" />
+                              <CheckBox fx:id="top10_chkBox" mnemonicParsing="false" onAction="#toppingCheckBoxSelected" text="Jalapeno" />
+                              <CheckBox fx:id="top11_chkBox" mnemonicParsing="false" onAction="#toppingCheckBoxSelected" text="Ground Beef" />
+                              <CheckBox fx:id="top12_chkBox" mnemonicParsing="false" onAction="#toppingCheckBoxSelected" text="Shredded Chicken" />
+                              <CheckBox fx:id="top13_chkBox" mnemonicParsing="false" onAction="#toppingCheckBoxSelected" text="Grilled Chicken" />
+                              <CheckBox fx:id="top14_chkBox" mnemonicParsing="false" onAction="#toppingCheckBoxSelected" text="Pepperoni" />
+                              <CheckBox fx:id="top15_chkBox" mnemonicParsing="false" onAction="#toppingCheckBoxSelected" text="Ham" />
+                              <CheckBox fx:id="top16_chkBox" mnemonicParsing="false" onAction="#toppingCheckBoxSelected" text="Bacon" />
+                           </children>
+                        </VBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+               <GridPane.margin>
+                  <Insets bottom="30.0" left="50.0" right="30.0" top="30.0" />
+               </GridPane.margin>
+            </VBox>
+         </children>
+      </GridPane>
+   </children>
+</AnchorPane>
