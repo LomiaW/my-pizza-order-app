@@ -1,14 +1,3 @@
-/**********************************************
-Workshop #2 - Pizza Ordering App
-Course: APD 545 - Winter 2024
-Last Name: WU
-First Name: LOMIA
-ID: 116492182
-Section: NAA
-This assignment represents my own work in accordance with Seneca Academic Policy. 
-Date: 2024-02-05
-**********************************************/
-
 package application;
 
 import javafx.application.Application;
